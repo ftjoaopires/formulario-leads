@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>João Pires — Fisioterapia</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 32px 16px 48px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      max-width: 420px;
+      width: 100%;
+      padding: 36px 28px 32px;
+      text-align: center;
+    }
+
+    /* Foto */
+    .foto-wrapper {
+      margin-bottom: 20px;
+    }
+
+    .foto-wrapper img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #f5c400;
+    }
+
+    /* Headline */
+    .headline {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 18px;
+      line-height: 1.4;
+    }
+
+    /* Lista de objeções */
+    .objecoes {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 22px;
+    }
+
+    .objecoes li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.97rem;
+      color: #222;
+      padding: 6px 0;
+      border-bottom: 1px solid #f0f0f0;
+      line-height: 1.4;
+    }
+
+    .objecoes li:last-child {
+      border-bottom: none;
+    }
+
+    .seta {
+      color: #f5c400;
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* CTA texto */
+    .cta-texto {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 4px;
+    }
+
+    .cta-sub {
+      font-size: 0.93rem;
+      color: #555;
+      margin-bottom: 22px;
+    }
+
+    /* Formulário */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1.5px solid #ddd;
+      border-radius: 10px;
+      font-size: 0.97rem;
+      color: #222;
+      background: #fafafa;
+      outline: none;
+      transition: border-color 0.2s;
+      font-family: inherit;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #f5c400;
+      background: #fff;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #aaa;
+    }
+
+    textarea {
+      resize: none;
+      height: 80px;
+    }
+
+    button[type="submit"] {
+      background: #f5c400;
+      color: #111;
+      border: none;
+      border-radius: 10px;
+      padding: 15px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 4px;
+      transition: background 0.2s, transform 0.1s;
+      letter-spacing: 0.01em;
+    }
+
+    button[type="submit"]:hover {
+      background: #e0b300;
+    }
+
+    button[type="submit"]:active {
+      transform: scale(0.98);
+    }
+
+    .rodape {
+      margin-top: 16px;
+      font-size: 0.78rem;
+      color: #bbb;
+    }
+
+    /* Página de obrigado (oculta por defeito) */
+    #obrigado {
+      display: none;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    #obrigado .check {
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+
+    #obrigado h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 8px;
+    }
+
+    #obrigado p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+
+    <!-- Foto -->
+    <div class="foto-wrapper">
+      <!-- Substitui o src pelo caminho/URL da tua foto -->
+      <img src="../foto-joao-sem-fundo.png" alt="João Pires — Fisioterapeuta" onerror="this.style.display='none'" />
+    </div>
+
+    <!-- Headline -->
+    <p class="headline">Se queres voltar ao teu dia-a-dia<br>sem dores e…</p>
+
+    <!-- Lista de objeções -->
+    <ul class="objecoes">
+      <li><span class="seta">&#10148;</span> Não queres que demore uma eternidade</li>
+      <li><span class="seta">&#10148;</span> Não queres fazer infinitas sessões de fisioterapia</li>
+      <li><span class="seta">&#10148;</span> Não queres um acompanhamento chapa 5</li>
+      <li><span class="seta">&#10148;</span> Não te queres sentir abandonado na reabilitação</li>
+    </ul>
+
+    <!-- CTA texto -->
+    <p class="cta-texto">Chegaste ao sítio certo.</p>
+    <p class="cta-sub">Preenche aqui os teus dados:</p>
+
+    <!-- Formulário -->
+    <!-- IMPORTANTE: substitui YOUR_FORM_ID pelo teu ID do Formspree (ver instruções em baixo) -->
+    <form id="formulario" action="https://hook.eu1.make.com/5ly02gq7s4heqezyyqj5x21kpqfj3s51" method="POST">
+      <input type="text"  name="nome"      placeholder="Nome"               required />
+      <input type="text"  name="sobrenome" placeholder="Sobrenome"          required />
+      <input type="email" name="email"     placeholder="Email"              required />
+      <input type="tel"   name="telemovel" placeholder="Número de telemóvel" value="+351 " required />
+      <textarea           name="lesao"     placeholder="Qual é a tua lesão ou problema?" required></textarea>
+
+      <button type="submit">Quero ser contactado</button>
+    </form>
+
+    <!-- Mensagem de obrigado (aparece após submissão) -->
+    <div id="obrigado">
+      <div class="check">✅</div>
+      <h2>Obrigado, recebi os teus dados!</h2>
+      <p>Vou entrar em contacto contigo brevemente.<br>Até já! 💪</p>
+    </div>
+
+    <p class="rodape">João Pires · Fisioterapeuta</p>
+  </div>
+
+  <script>
+    const form = document.getElementById('formulario');
+    const obrigado = document.getElementById('obrigado');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          form.style.display = 'none';
+          document.querySelector('.cta-texto').style.display = 'none';
+          document.querySelector('.cta-sub').style.display = 'none';
+          obrigado.style.display = 'block';
+        } else {
+          alert('Erro ao enviar. Tenta novamente.');
+        }
+      } catch {
+        alert('Sem ligação. Verifica o teu internet e tenta de novo.');
+      }
+    });
+  </script>
+</body>
+</html>
