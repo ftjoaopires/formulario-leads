@@ -125,6 +125,43 @@
       color: #aaa;
     }
 
+    .telemovel-wrapper {
+      display: flex;
+      align-items: center;
+      border: 1.5px solid #ddd;
+      border-radius: 10px;
+      background: #fafafa;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .telemovel-wrapper:focus-within {
+      border-color: #f5c400;
+      background: #fff;
+    }
+
+    .telemovel-prefix {
+      padding: 13px 10px 13px 14px;
+      font-size: 0.97rem;
+      color: #222;
+      background: transparent;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .telemovel-wrapper input {
+      border: none;
+      border-radius: 0;
+      background: transparent;
+      padding: 13px 14px 13px 0;
+      flex: 1;
+    }
+
+    .telemovel-wrapper input:focus {
+      border-color: transparent;
+      background: transparent;
+    }
+
     textarea {
       resize: none;
       height: 80px;
@@ -190,7 +227,7 @@
     <!-- Foto -->
     <div class="foto-wrapper">
       <!-- Substitui o src pelo caminho/URL da tua foto -->
-      <img src="../foto-joao-sem-fundo.png" alt="João Pires — Fisioterapeuta" onerror="this.style.display='none'" />
+      <img src="foto.png" alt="João Pires — Fisioterapeuta" />
     </div>
 
     <!-- Headline -->
@@ -214,7 +251,10 @@
       <input type="text"  name="nome"      placeholder="Nome"               required />
       <input type="text"  name="sobrenome" placeholder="Sobrenome"          required />
       <input type="email" name="email"     placeholder="Email"              required />
-      <input type="tel"   name="telemovel" placeholder="Número de telemóvel" value="+351 " required />
+      <div class="telemovel-wrapper">
+        <span class="telemovel-prefix">+351</span>
+        <input type="tel" name="telemovel" id="telemovel-input" placeholder="912 345 678" required />
+      </div>
       <textarea           name="lesao"     placeholder="Qual é a tua lesão ou problema?" required></textarea>
 
       <button type="submit">Quero ser contactado</button>
@@ -237,6 +277,8 @@
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
       const data = new FormData(form);
+      const numero = document.getElementById('telemovel-input').value.trim();
+      data.set('telemovel', '+351' + numero);
 
       try {
         const res = await fetch(form.action, {
