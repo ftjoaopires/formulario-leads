@@ -276,7 +276,7 @@
       e.preventDefault();
       const data = new FormData(form);
       const numero = document.getElementById('telemovel-input').value.trim();
-      data.set('telemovel', '+351' + numero);
+      data.set('telemovel', '351' + numero);
 
       try {
         const res = await fetch(form.action, {
