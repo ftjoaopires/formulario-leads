@@ -294,7 +294,7 @@
       e.preventDefault();
       const data = new FormData(form);
       const numero = document.getElementById('telemovel-input').value.replace(/\D/g, '');
-      data.set('telemovel', '351' + numero);
+      data.set('telemovel', '351' + numero.slice(-9));
 
       if (typeof fbq !== 'undefined') fbq('track', 'Lead');
 
